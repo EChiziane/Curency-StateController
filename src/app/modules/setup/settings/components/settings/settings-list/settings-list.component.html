@@ -1,0 +1,14 @@
+
+    <div class="alert alert-info" *ngIf="settings && settings.length === 0">No setting defined yet!</div>
+
+    <ejs-grid
+      *ngIf="settings && settings.length > 0"
+      [dataSource]='settings'
+    >
+      <e-columns>
+        <e-column field='id' headerText='ID'  width=50></e-column>
+        <e-column field='key' headerText='Key' width=50></e-column>
+        <e-column field='value' headerText='Value'  width=50></e-column>
+        <e-column field='createdAt' headerText='Date Created' width=60></e-column>
+      </e-columns>
+    </ejs-grid>

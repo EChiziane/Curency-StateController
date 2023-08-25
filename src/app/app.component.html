@@ -1,0 +1,117 @@
+<mat-drawer-container class="navbar-container" fullscreen autosize >
+  <mat-drawer #drawer class="sidenav" mode="push">
+    <mat-nav-list (click)="drawer.close()">
+    </mat-nav-list>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <!--Administration-->
+            {{ 'APP_COMPONENT.ADMINISTRATION_MENU.TITLE' | translate }}
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-icon>settings</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list (click)="drawer.close()">
+          <a mat-list-item><span>
+             <!--Roles-->
+            {{ 'APP_COMPONENT.ADMINISTRATION_MENU.ROLES' | translate }}
+          </span></a>
+          <a mat-list-item><span>
+            <!--Users-->
+            {{ 'APP_COMPONENT.ADMINISTRATION_MENU.USERS' | translate }}
+          </span></a>
+          <a mat-list-item><span>
+             <!--Permissions-->
+            {{ 'APP_COMPONENT.ADMINISTRATION_MENU.PERMISSIONS' | translate }}
+          </span></a>
+        </mat-nav-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <!--Settings-->
+            {{ 'APP_COMPONENT.SETTINGS_MENU.TITLE' | translate }}
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-icon>settings</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list (click)="drawer.close()">
+          <a mat-list-item routerLink="/settings"><span>
+             <!--Settings-->
+            {{ 'APP_COMPONENT.SETTINGS_MENU.SYSTEM_SETTINGS' | translate }}
+          </span></a>
+        </mat-nav-list>
+
+        <mat-nav-list (click)="drawer.close()">
+          <a mat-list-item routerLink="/currencies"><span>
+             <!--Settings-->
+            {{ 'APP_COMPONENT.SETTINGS_MENU.SYSTEM_CURRENCIES' | translate }}
+          </span></a>
+        </mat-nav-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <!--Profile-->
+            {{'APP_COMPONENT.PROFILE_MENU.TITLE' | translate}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list (click)="drawer.close()">
+          <a mat-list-item>
+            <span> {{'APP_COMPONENT.PROFILE_MENU.CHANGE_PASSWORD' | translate}}</span>
+          </a>
+          <a mat-list-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>{{'APP_COMPONENT.PROFILE_MENU.LOGOUT' | translate}}</span>
+          </a>
+        </mat-nav-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-drawer>
+  <mat-toolbar color="primary" align="right" *ngIf="auth.isAuthenticated()">
+    <span class="menu-button" mat-icon-button routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </span>
+    <button (click)="drawer.toggle()" class="menu-button" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span></span>
+
+
+    <span class="fill-remaining-space"></span>
+
+    <div>
+      <button [matMenuTriggerFor]="testMenu"
+              class="menu-button"
+              mat-button>{{(selectedLanguage$ | async)?.name}}<span class="caret"></span>
+      </button>
+      <mat-menu #testMenu="matMenu">
+        <button (click)="onSelectLanguage(language)" mat-menu-item *ngFor="let language of languages$ | async">{{language.name}}</button>
+      </mat-menu>
+      <button class="menu-button" mat-button>{{loggedInUser$ | async}} <span class="caret"></span>
+      </button>
+    </div>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
+
+

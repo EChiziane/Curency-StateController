@@ -1,0 +1,25 @@
+<main class="form-signin text-center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ejs-dropdownlist id='ddlelement' (valueChange)="onSelectLanguage($event)" [fields]='fields' [dataSource]='languages'></ejs-dropdownlist>
+  <br>
+  <form #loginForm="ngForm">
+    <h1 class="h3 mb-3 fw-normal">{{ 'LOGIN_COMPONENT.TITLE' | translate }}</h1>
+
+    <div class="form-floating">
+      <input #email name="email1" (invalid)="email" required type="email" [(ngModel)]="loginCredentials.email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">{{ 'LOGIN_COMPONENT.EMAIL_LABEL' | translate }}</label>
+    </div>
+    <div class="form-floating">
+      <input #password name="password1" id="password" required type="password" [(ngModel)]="loginCredentials.password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">{{ 'LOGIN_COMPONENT.PASSWORD_LABEL' | translate }}</label>
+    </div>
+    <button [disabled]="!loginForm.form.valid" class="w-100 btn btn-lg btn-primary" (click)="onLogin()" type="submit">{{ 'LOGIN_COMPONENT.SIGN_IN_BUTTON' | translate }}</button>
+  </form>
+</main>

@@ -1,0 +1,30 @@
+<form #settingAddForm="ngForm">
+  <h1 class="h3 mb-3 fw-normal">Add New Setting</h1>
+
+  <div class="form-floating m-2">
+    <input #key
+
+           [(ngModel)]="newKey"
+
+           name="key1" required type="text" class="form-control" id="floatingInputKey" placeholder="">
+    <label for="floatingInputKey">Key:</label>
+  </div>
+  <div class="form-floating m-2">
+    <input
+      name="value1"
+      required
+      type="text" class="form-control"
+      id="floatingInputValue"
+      placeholder=""
+      [(ngModel)]="newValue"
+    >
+    <label for="floatingInputValue">Value:</label>
+  </div>
+  <button
+    [disabled]="!settingAddForm.form.valid"
+    class="w-100 btn btn-lg btn-primary"
+    type="submit"
+    (click)="onSave(newKey, newValue)"
+
+  >Save</button>
+</form>

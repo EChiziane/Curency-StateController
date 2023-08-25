@@ -1,0 +1,30 @@
+{
+  "LOGIN_COMPONENT": {
+    "TITLE": "Por favor entre",
+    "EMAIL_LABEL": "Email",
+    "PASSWORD_LABEL": "Password",
+    "SIGN_IN_BUTTON": "Entrar",
+    "LOGIN_SUCCESS_MESSAGE": "Login bem sucedido",
+    "LOGIN_FAIL_MESSAGE": "Login Falhou"
+  },
+  "APP_COMPONENT": {
+    "ADMINISTRATION_MENU": {
+      "TITLE": "Administração",
+      "USERS": "Gestão de Utilizadores",
+      "ROLES": "Gestão de Funções",
+      "PERMISSIONS": "Gestão de Permissões"
+    },
+    "PROFILE_MENU": {
+      "TITLE": "Perfil",
+      "CHANGE_PASSWORD": "Alterar Senha",
+      "LOGOUT": "Sair"
+    },
+    "SETTINGS_MENU" : {
+      "TITLE": "Settings",
+      "SYSTEM_SETTINGS": "Settings",
+      "SYSTEM_CURRENCIES": "Moeda"
+    }
+  },
+  "HOME_COMPONENT" : {
+  }
+}
